@@ -23,3 +23,6 @@ class DevelopmentConfig(Config):
     dbname=os.getenv('DBNAME')
     )
     DEBUG = True
+
+class ProductionConfig(Config):
+    DATABASE_URI = 'production-database-uri'

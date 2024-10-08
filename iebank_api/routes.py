@@ -43,7 +43,7 @@ def get_account(id):
     account = Account.query.get(id)
     return format_account(account)
 
-@app.route('/accounts/<int:id>', methods=['PUT', 'DELETE'])
+@app.route('/accounts/<int:id>', methods=['PUT'])
 def update_account(id):
     account = Account.query.get(id)
     account.name = request.json['name']

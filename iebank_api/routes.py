@@ -2,6 +2,7 @@ from flask import Flask, request
 from iebank_api import db, app
 from iebank_api.models import Account
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
@@ -42,7 +43,7 @@ def get_account(id):
     account = Account.query.get(id)
     return format_account(account)
 
-@app.route('/accounts/<int:id>', methods=['PUT'])
+@app.route('/accounts/<int:id>', methods=['PUT', 'DELETE'])
 def update_account(id):
     account = Account.query.get(id)
     account.name = request.json['name']

@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:8080", "http://127.0.0.1:8080"])
 
 load_dotenv()
 
@@ -20,7 +21,8 @@ elif os.getenv('ENV') == 'ghci':
     app.config.from_object('config.GithubCIConfig')
 else:
     print("Running in production mode")
-    app.config.from_object('config.ProductionConfig')
+    app.config.from_object('config.LocalConfig')
+    
 
 db = SQLAlchemy(app)
 

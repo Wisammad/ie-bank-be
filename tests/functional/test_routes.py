@@ -38,7 +38,7 @@ def test_update_account(testing_client):
     testing_client.post(
         "/accounts", json={"name": "John Doe", "country": "Spain", "currency": "€"}
     )  
-    response = testing_client.put("/accounts/1", json={"name": "Dev-Aswin"})
+    response = testing_client.put("/accounts/1", json={"name": "Dev-wessam"})
     assert response.status_code == 200
 
 def test_delete_account(testing_client):
